@@ -2,7 +2,7 @@
 
 1. Clone repository
 ```bash
-https://github.com/budhasanjeev/text-analyzer.git
+git clone https://github.com/budhasanjeev/text-analyzer.git
 ```
 
 2. Navigate to the project directory
