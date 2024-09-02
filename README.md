@@ -23,7 +23,7 @@ docker-compose up -d
 5. Setup symbolic link
 ```bash
 docker-compose exec php bash
-ln -s .env.dev .env
+ln -snf .env.dev .env
 ```
 
 6. Edit the host file
@@ -33,7 +33,7 @@ sudo vi /etc/hosts
 127.0.0.1 local.text-analyzer.com
 ```
 
-## DB
+7. DB setup
 ```bash
 Open the docker and mysql container
 
@@ -41,7 +41,6 @@ mysql -utest -ppass!234
 
 then create table
 
-```sql
 DROP TABLE IF EXISTS dictionary_tbl;
 CREATE TABLE dictionary_tbl (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
