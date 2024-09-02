@@ -1,9 +1,45 @@
-## DB
+# Setup Guide
+
+1. Clone this repo
 ```bash
-text_analyzer
+https://github.com/budhasanjeev/text-analyzer.git
 ```
 
-## Dictionary Table
+2. Navigate inside the project directory
+```bash
+cd text-analyzer
+```
+
+3. Build the docker images
+```bash
+docker-compose build
+```
+
+4. Run the container
+```bash
+docker-compose up -d
+```
+
+5. Setup symbolic link
+```bash
+docker-compose exec php bash
+ln -s .env.dev .env
+```
+
+6. Edit the host file
+```bash
+sudo vi /etc/hosts
+
+127.0.0.1 local.text-analyzer.com
+```
+
+## DB
+```bash
+Open the docker and mysql container
+
+mysql -utest -ppass!234
+
+then create table
 
 ```sql
 DROP TABLE IF EXISTS dictionary_tbl;
