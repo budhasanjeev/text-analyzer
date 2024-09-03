@@ -63,9 +63,10 @@ CREATE TABLE dictionary_tbl (
 
 8. Install node modules
 ```bash
-docker-compose run --rm node
+cd ~/laravel-app
 
-docker-compose run --rm node npm run dev
+npm install
+npm run dev
 ```
 
 ### Finally

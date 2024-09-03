@@ -50,9 +50,11 @@ services:
     image: node:20-alpine
     container_name: node
     volumes:
-      - ./laravel-app:/data
-    working_dir: /data
-    command: npm install
+      - ./laravel-app:/var/www/html
+    working_dir: /var/www/html
+    command: npm run dev
+    ports:
+      - '3000:3000'
     networks:
       - app-network
 
