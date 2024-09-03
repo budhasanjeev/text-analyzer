@@ -23,6 +23,7 @@ docker-compose up -d
 5. Install composer, symbolic link and generate application key
 ```bash
 docker-compose exec php bash
+
 composer install
 
 ln -snf .env.dev .env
