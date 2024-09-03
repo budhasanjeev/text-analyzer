@@ -69,4 +69,4 @@ docker-compose run --rm node npm run dev
 
 ### Finally
 
-[Click here to open app](local.text-analyzer.com)
+[Click here to open app](http://local.text-analyzer.com)
