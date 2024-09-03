@@ -63,7 +63,7 @@ CREATE TABLE dictionary_tbl (
 
 8. Install node modules
 ```bash
-cd ~/laravel-app
+cd laravel-app
 
 npm install
 npm run dev
