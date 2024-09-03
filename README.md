@@ -20,41 +20,34 @@ docker-compose build
 docker-compose up -d
 ```
 
-5. Setup laravel app
+5. Install composer, symbolic link and generate application key
 ```bash
 docker-compose exec php bash
-
-php artisan key:generate
-
 composer install
 
 ln -snf .env.dev .env
+
+php artisan key:generate
 ```
 
 6. Edit the host file
 ```bash
 sudo vi /etc/hosts
 
-content
+Copy below content and paste
 
 127.0.0.1 local.text-analyzer.com
 ```
 
-7. Install dependencies from package json
-```bash
-npm install
-
-npm run dev
-```
-
-8. DB setup
+7. DB setup
 Connect mysql container and execute the command
 ```bash
-mysql -utestuser -ppass!234
+mysql -utestuser -ppass1234 text_analyzer
 
-then create table
+Then create table
 
 DROP TABLE IF EXISTS dictionary_tbl;
+
 CREATE TABLE dictionary_tbl (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     jp_word VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -65,5 +58,15 @@ CREATE TABLE dictionary_tbl (
     INDEX idx_jp_word (jp_word),
     INDEX idx_en_translation (en_translation)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 ```
+
+8. Install node modules
+```bash
+docker-compose run --rm node
+
+docker-compose run --rm node npm run dev
+```
+
+### Finally
+
+[Click here to open app](local.text-analyzer.com)

@@ -42,7 +42,17 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=text_analyzer
       - MYSQL_USER=testuser
-      - MYSQL_PASSWORD=pass!234
+      - MYSQL_PASSWORD=pass1234
+    networks:
+      - app-network
+
+  node:
+    image: node:20-alpine
+    container_name: node
+    volumes:
+      - ./laravel-app:/data
+    working_dir: /data
+    command: npm install
     networks:
       - app-network
 
