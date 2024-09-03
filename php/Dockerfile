@@ -21,12 +21,5 @@ WORKDIR /var/www/html
 
 COPY ./laravel-app /var/www/html
 
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
-RUN composer install
-
-RUN ln -snf .env.dev .env
-
 CMD ["php-fpm"]
 

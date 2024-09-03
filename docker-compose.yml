@@ -24,7 +24,7 @@ services:
     ports:
       - '80:80'
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./laravel-app:/var/www/html
     depends_on:
       - php
@@ -38,12 +38,11 @@ services:
       - '3306:3306'
     volumes:
       - db-data:/var/lib/mysql
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
-      - MYSQL_DATABASE=text-analyzer
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=pass!234
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=text_analyzer
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=pass!234
     networks:
       - app-network
 

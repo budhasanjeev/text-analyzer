@@ -20,33 +20,40 @@ docker-compose build
 docker-compose up -d
 ```
 
-5. Create application key
+5. Setup laravel app
 ```bash
 docker-compose exec php bash
-```
-then execute this command
-```bash
+
 php artisan key:generate
+
+composer install
+
+ln -snf .env.dev .env
 ```
 
 6. Edit the host file
 ```bash
 sudo vi /etc/hosts
-```
 
-then add this in the file
-```bash
+content
+
 127.0.0.1 local.text-analyzer.com
 ```
 
-7. DB setup
-Connect mysql container and execute the command
+7. Install dependencies from package json
 ```bash
-mysql -utest -ppass!234
+npm install
+
+npm run dev
 ```
 
-then create table
+8. DB setup
+Connect mysql container and execute the command
 ```bash
+mysql -utestuser -ppass!234
+
+then create table
+
 DROP TABLE IF EXISTS dictionary_tbl;
 CREATE TABLE dictionary_tbl (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
